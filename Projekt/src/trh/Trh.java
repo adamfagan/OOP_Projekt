@@ -17,6 +17,18 @@ public class Trh {
 	private Kupujuci obchodujuciKupujuci;
 	
 	private int pocetUcastnikov;
+	
+	private List<SledovatelTrhu> sledovatelia = new ArrayList<>();		//Zoznam sledovatelov (observerov), ktore sleduju
+																		//tento predmet (subject)	
+	public void pridajSledovatela(SledovatelTrhu novySledovatel) {		//Toto (Trh) je objekt - predmet
+		sledovatelia.add(novySledovatel);								//ktory je sledovany
+	}																	//Preto obsahuje tieto metody
+																		//pridaj a upovedom (oznam nieco
+	public void upovedomSledovatelov() {								//nove sledovatelom)
+		for(SledovatelTrhu s : sledovatelia) {							//		
+			s.upovedom();												//
+		}																//
+	}																	//
 		
 	public int zistiPocetUcastnikov(){
 		return pocetUcastnikov;
@@ -45,7 +57,6 @@ public class Trh {
 			predavajuci.add(new PredavajuciAmerican("Amerika", 100, 3, new Topanky(100)));
 			kupujuci.add(new KupujuciAmerican("Amerika", 300, new Bitcoin()));
 		}
-
 	}
 		
 	public void obchod1na1(Kupujuci kupujuci, Predavajuci predavajuci) {
@@ -66,6 +77,8 @@ public class Trh {
 	public String dalsiObchod1na1() {
 		obchodujuciPredavajuci = iterPredavajuci.next();
 		obchodujuciKupujuci = iterKupujuci.next();
+		
+		upovedomSledovatelov();							//Oznamujeme zmenu sledovatelom - observerom
 		
 		obchod1na1(obchodujuciKupujuci, obchodujuciPredavajuci);
 		
