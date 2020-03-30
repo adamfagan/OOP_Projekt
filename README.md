@@ -27,4 +27,7 @@ Prvy Commit: - Agregácia - Predavajuci "má" Produkt
                            tlačidla vytvoriť účastníkov trhu - ku celkovému počtu Kupujucih sa vytvorí taký istý
                            počet predávajúcich. Ďalej používateľ dokáže pomocou tlačidla spustiť trh čím sa do
                            GUI vypíšu údaje o obchode medzi Predavajucim a Kupujucim.
-                             
+Commit "Pridanie vzoru Observer" - do tohto commitu sa mi nepridali Interface "SledovatelTrhu", ktory predpisuje
+                           správanie pre sledovateľov, ktorí ho musia implementovať a samotná trieda sledovateľa
+                           "PeniazeUcastnikov" ktorá je sledovateľom a je upozorňovaná na zmeny v triede Trh.
+ 
